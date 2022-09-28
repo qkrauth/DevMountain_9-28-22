@@ -19,3 +19,31 @@
 
 ////////// CODE HERE //////////
 
+const decoder = (code) => {
+    let output = "";
+    let i = 0;
+    while(i < code.length) {
+        if(/\D/.test(code[i])){  // /\D/ is looking for any non digits. lowercase d /\d/ looks for digits
+            output +=(code[i])
+        } else {
+            i += parseInt(code[i])
+        }
+        i++
+    }
+    return output
+}
+console.log(decoder("0h2xce5ngbrdy"))
+
+////////// SOLUTION 2 //////////
+
+function decoder2 (scrambled) {
+    let hiddenword = "";
+    for (let i = 0; i < scrambled.length; i++) {
+        if(Number(scrambled[i]) >= 0) {
+            i += Number(scrambled[i]) + 1
+            hiddenword += scrambled[i]
+        }
+    }
+    return hiddenword
+}
+console.log(decoder2("2bna0p1mp2osl0e"));
