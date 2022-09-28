@@ -47,3 +47,19 @@ function decoder2 (scrambled) {
     return hiddenword
 }
 console.log(decoder2("2bna0p1mp2osl0e"));
+
+////////// SOLUTION 3 //////////
+
+const decoder3 = str => {
+    let decoded = "";
+    for(let i = 0; i < str.length; i++) {
+        if(!isNaN(Number(str[i]))){
+            i += Number(str[i])
+        } else {
+            decoded += str[i]
+        }
+    }
+    return decoded
+}
+
+console.log(decoder3("0h2xce5ngbrdy"));
