@@ -27,5 +27,9 @@ const deleteMovie = (event) => {
 
 const crossOffMovie = (event) => {
     event.target.classList.toggle("checked");
-
+    if ((event.target.classList).contains("checked")){
+        message.textContent = "Movie watched"
+    } else {
+        message.textContent = "Movie added back"
+    }
 }
